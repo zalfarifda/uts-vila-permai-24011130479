@@ -1,0 +1,105 @@
+:root {
+  --hijau: #2e7d57;
+  --hijau-tua: #1f5a3e;
+  --krem: #f6f3ea;
+  --teks: #25302b;
+  --abu: #6b7770;
+  --garis: #d9d4c5;
+  --merah: #b3261e;
+  --putih: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--teks);
+  background: var(--krem);
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 16px; }
+
+.site-header { background: var(--hijau-tua); color: var(--putih); padding: 12px 0; }
+.site-header__inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.site-header__title { margin: 0; font-size: 1.6rem; }
+
+.nav { display: flex; gap: 16px; }
+.nav__link { color: var(--putih); text-decoration: none; padding: 4px 8px; border-bottom: 2px solid transparent; transition: border-color 0.3s; }
+.nav__link:hover { border-color: var(--putih); }
+
+.section { margin: 32px 0; }
+.section__title { font-size: 1.5rem; color: var(--hijau-tua); margin: 0 0 12px; }
+.hero { background: var(--putih); border: 1px solid var(--garis); border-radius: 12px; padding: 24px; margin-top: 24px; }
+.hero__text { margin: 0; color: var(--abu); }
+
+.search { margin-bottom: 8px; }
+.search__info { color: var(--abu); margin: 4px 0 12px; }
+
+.villa-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+.villa-card {
+  background: var(--putih);
+  border: 1px solid var(--garis);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 0;
+  transition: transform 0.25s, box-shadow 0.25s;
+  animation: muncul 0.5s ease;
+}
+.villa-card:hover { transform: translateY(-4px); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12); }
+.villa-card__name { margin: 0 0 4px; font-size: 1.2rem; color: var(--hijau-tua); }
+.villa-card__info { margin: 2px 0; color: var(--abu); font-size: 0.95rem; }
+.villa-card__price { font-size: 1.15rem; font-weight: 700; color: var(--hijau); margin: 8px 0; }
+.villa-card__facilities { margin: 8px 0; padding-left: 18px; font-size: 0.95rem; }
+.villa-card__status { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; }
+.villa-card__status--tersedia { background: #dff3e6; color: var(--hijau-tua); }
+.villa-card__status--penuh { background: #fbe0de; color: var(--merah); }
+
+.form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; background: var(--putih); border: 1px solid var(--garis); border-radius: 12px; padding: 20px; margin: 0; }
+.form__group { display: flex; flex-direction: column; }
+.form__label { font-weight: 600; margin-bottom: 4px; }
+.form__input { padding: 10px; border: 1px solid var(--garis); border-radius: 8px; font-size: 1rem; width: 100%; transition: border-color 0.2s; }
+.form__input:focus { outline: none; border-color: var(--hijau); }
+.form__actions { grid-column: 1 / -1; display: flex; gap: 12px; flex-wrap: wrap; }
+
+.btn { padding: 10px 20px; border: 2px solid var(--hijau); border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.25s, color 0.25s, transform 0.15s; }
+.btn:hover { transform: translateY(-2px); }
+.btn--primary { background: var(--hijau); color: var(--putih); }
+.btn--primary:hover { background: var(--hijau-tua); }
+.btn--secondary { background: var(--putih); color: var(--hijau); }
+.btn--secondary:hover { background: var(--hijau); color: var(--putih); }
+
+.message { margin: 12px 0 0; padding: 10px 14px; border-radius: 8px; background: #fbe0de; color: var(--merah); border: 1px solid var(--merah); }
+.message--ok { background: #dff3e6; color: var(--hijau-tua); border-color: var(--hijau); }
+
+.summary, .orders { background: var(--putih); border: 1px solid var(--garis); border-radius: 12px; padding: 16px; margin: 16px 0 0; }
+.summary__title { margin: 0 0 8px; color: var(--hijau-tua); }
+.summary__text { margin: 4px 0; }
+.summary__total { font-size: 1.3rem; font-weight: 700; color: var(--hijau); }
+.orders__list { margin: 0; padding-left: 18px; }
+.orders__item { margin-bottom: 6px; }
+
+.site-footer { background: var(--hijau-tua); color: var(--putih); padding: 20px 0; margin-top: 40px; }
+.site-footer__title { margin: 0 0 8px; font-size: 1.2rem; }
+.site-footer p { margin: 2px 0; }
+.site-footer__copy { opacity: 0.8; font-size: 0.85rem; margin-top: 8px; }
+
+@keyframes muncul {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .villa-grid, .form { grid-template-columns: 1fr; }
+  .section__title { font-size: 1.3rem; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 12px; }
+  .site-header__inner { flex-direction: column; align-items: flex-start; }
+  .nav { gap: 8px; flex-wrap: wrap; }
+  .btn { width: 100%; }
+  .hero { padding: 16px; }
+}
