@@ -8,6 +8,8 @@
 ## Deskripsi
 Halaman web statis (HTML, CSS, JavaScript) untuk memesan vila di Puncak, Bogor. Tanpa server dan tanpa basis data; data vila disimpan sebagai array objek di `script.js`.
 
+Demo online: https://zalfarifda.github.io/uts-vila-permai-24011130479/
+
 ## Cara Menjalankan
 1. Unduh atau clone repository ini.
 2. Buka file `index.html` di browser (atau gunakan ekstensi Live Server di VS Code).
